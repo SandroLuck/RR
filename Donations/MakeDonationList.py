@@ -39,7 +39,7 @@ def addStringToUser(donation, user_dict):
     else:
         user_dict[number_unit[1]]=int(number_unit[0])
 
-def dict_to_text(donations):
+def dict_to_text(donations, amount_of_ppl=20):
     to_sort=[]
     name_to_value_donation=dict()
     for name in donations:
@@ -49,22 +49,17 @@ def dict_to_text(donations):
                     name_to_value_donation[name] += int(donations[name][donation])
                 else:
                     name_to_value_donation[name] = int(donations[name][donation])
-            if 'bbl' in donation or 'kg' in donation:
+            elif 'bbl' in donation or 'kg' in donation:
                 if name in name_to_value_donation:
                     name_to_value_donation[name] += int(donations[name][donation])*300
                 else:
                     name_to_value_donation[name] = int(donations[name][donation])*300
-            if 'pcs' in donation:
+            elif 'pcs' in donation:
                 if name in name_to_value_donation:
                     name_to_value_donation[name] += int(donations[name][donation]) * 1500000
                 else:
                     name_to_value_donation[name] = int(donations[name][donation]) * 1500000
-            if 'pcs' in donation:
-                if name in name_to_value_donation:
-                    name_to_value_donation[name] += int(donations[name][donation]) * 1500000
-                else:
-                    name_to_value_donation[name] = int(donations[name][donation]) * 1500000
-            if 'g' in donation:
+            elif 'g' in donation:
                 if name in name_to_value_donation:
                     name_to_value_donation[name] += int(donations[name][donation]) * 2500
                 else:
@@ -76,7 +71,7 @@ def dict_to_text(donations):
     objects = []
     performance = []
 
-    for v in to_sort:
+    for v in to_sort[:25]:
         name=v[0]
         sum=v[1]/ float(1000000)
         for donation in donations[name]:
