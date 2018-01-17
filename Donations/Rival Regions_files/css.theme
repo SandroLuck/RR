@@ -1,0 +1,366 @@
+body{
+	background-color: #393939;
+}
+
+.news_content a:hover, .hov2:hover{
+	color: #3c6ae0 !important;
+}
+
+.dd-option:hover{
+	background: #3c6ae0;
+	color: #f1f1f1}
+
+.guide_show{
+	position: absolute;
+	margin-left: 50%;
+	line-height: 32px;
+	padding: 3px;
+	border-radius: 3px;
+	display: none;
+	color: #f1f1f1;
+	font-size: 18px;
+	font-family: Impact;
+	left: 50%;
+	background-color: rgba(0,0,0,0.4);
+}
+.guide_show_text{
+	padding-left: 7px; padding-top: 0px; padding-right: 4px;
+}
+
+.header_buttons_hover:hover, .hov:hover{
+	background-color: #3c6ae0;
+}
+
+.hov{
+	cursor: pointer;
+}
+
+.header_buttons_hover_green:hover{
+	cursor: pointer;
+	background-color: #54bb38;
+}
+
+.header_buttons_hover_close:hover{
+	background-color: #3c6ae0;
+}
+
+.timeline_bottom .today, 
+.timeline_top .today,
+.timeline_on:hover,
+.chat_link:hover, .timeline_lastmonth:hover, .timeline_nextmonth:hover{
+	color: #3c6ae0;
+}
+
+.header_menu_item:hover{
+	background-color: #3c6ae0;
+}
+
+#header{
+	background-color: #393939;
+}
+
+.more_hr{
+	border-bottom: 2px solid #393939;
+}
+
+#content{
+	width: 100%;
+	position: absolute;
+}
+
+#map_under{
+	height: 50px; position: absolute; top: 0px; left: 0px; z-index: 1;
+}
+
+#header_slide, #map_under{
+	background-color: rgba(40,40,40,0.9);
+}
+
+blockquote{
+	border: 1px solid #292929;
+	padding: 4px;
+	width: 690px;
+	font-style: italic;
+}
+
+blockquote.code{
+	font-style: normal;
+}
+
+.ib_light, #tiptip_content{
+	background-color: #393939;
+	border: 1px solid #f1f1f1;
+}
+
+#tiptip_arrow, #tiptip_arrow_inner{
+	background-color: rgba(0,0,0,0);
+}
+
+#header_menu, .ib, .dd-selected{
+	background-color: #292929;
+}
+
+.ib_border{
+	border: 1px solid #292929;
+}
+
+.ib_border_green{
+	border: 1px solid #54bb38;
+}
+
+.ib_border_1{
+	border: 1px solid #3c6ae0;
+}
+
+.ib_border_2{
+	border: 1px solid #f1f1f1;
+}
+
+.dd-option-selected{
+	background: #3c6ae0;
+}
+
+.dd-options{
+	background: #393939;
+}
+
+.par_seat{
+	background-color: #292929;
+	border: 1px solid #393939;
+}
+
+.par_seat_nobg{
+	border: 1px solid #393939;
+}
+
+.border_donate{
+	border: 2px solid #393939;
+}
+
+.par_seat:hover{
+	border: 1px solid #3c6ae0;
+}
+	
+#index_region_show_over{
+	background: -moz-linear-gradient(left, #292929 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#292929), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, #292929 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, #292929 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, #292929 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+	background: linear-gradient(to right, #292929 0%,rgba(0,0,0,0) 100%); /* W3C */
+}
+	
+.ib, .ib_light, #index_parliament_list{
+	border: 1px solid #292929;
+}
+
+.news_content a, .news_content a:visited, #tiptip_arrow, #tiptip_arrow_inner, #tiptip_content, .tc, .dd-selected, .dd-selected-text, .dd-option-text, .name_input, #my_party_about_area, #my_paper_about_area, a{
+	color: #f1f1f1;
+}
+
+.dd-pointer-down{ border:solid 5px transparent; border-top:solid 5px #f1f1f1; }
+.dd-pointer-up{border:solid 5px transparent !important; border-bottom:solid 5px #f1f1f1 !important; margin-top:-9px !important;}
+
+.switcher_pin_locale{
+	background-color: #f1f1f1;
+}
+
+.switcher_l_r{
+	border: 2px solid #f1f1f1;
+	color: #f1f1f1;
+}
+
+.switcher_r{
+	border-left: 0px;
+	background-color: rgba(0,0,0,0);
+}
+
+.switcher_pin{
+	background-color: #f1f1f1;
+}
+
+h1.white, #change_r{
+	color: #f1f1f1 !important;
+}
+
+h2.white{
+	color: #f1f1f1;
+}
+
+h3.white{
+	color: #f1f1f1;
+}
+
+.white{
+	color: #f1f1f1;
+}
+
+.green, .results_date:hover, #money:hover, #gold:hover{
+	color: #54bb38;
+}
+
+.green_bg{
+	background-color: #54bb38;
+}
+
+.red_bg{
+	background-color: #d2361c;
+}
+
+.switcher_l{
+	border-right: 0px;
+	background-color: #54bb38;
+}
+
+.yellow{
+	color: #cacf36;
+}
+
+#slide_profile_my_message:hover, #slide_profile_send_message:hover, #slide_profile_delete_friend:hover, #slide_profile_add_friend:hover{
+	color: #f1f1f1;
+	border-bottom: 1px dotted #3c6ae0;
+}
+
+.blue, .dot:hover{
+	color: #3c6ae0;
+}
+
+.grey{
+	color: #cccccc;
+}
+
+.padding_url{
+	color: #f1f1f1;
+}
+
+#header_my_bar_close, #header_my_exp_close{
+	background-color: #393939;
+}
+
+.money_box{
+	border: 2px solid rgba(0,0,0,0.2);
+}
+
+.money_box:hover{
+	border: 2px solid #777;
+}
+
+.premium_box{
+	border: 2px solid rgba(0,0,0,0.2);
+}
+
+.premium_box:hover{
+	border: 2px solid #777;
+}
+
+.money_input{
+	background-color: rgba(0,0,0,0);
+	color: #cacf36;
+}
+
+.party_input, .paper_input{
+	background-color: rgba(0,0,0,0);
+	color: #f1f1f1;
+}
+
+.button_blue, .button_green, .button_white, .button_red{
+	color: #f1f1f1;
+}
+
+.button_blue, .offer_abstain, #header_my_exp_inner{
+	background-color:  #3c6ae0;
+}
+
+#header_my_exp_data, .index_my_exp_data{
+	color: #3c6ae0;
+}
+
+.button_red, .offer_against{
+	background-color:  #d2361c;
+}
+
+.par_aga{
+	color:  #d2361c;
+}
+
+.par_abs{
+	color:  #3c6ae0;
+}
+
+.par_pro{
+	color:  #54bb38;
+}
+
+.ore{
+	color:  #d2361c;
+}
+
+.uranium{
+	color:	#18e72b;
+}
+
+.button_green, .offer_pro{
+	background-color: #54bb38;
+}
+
+.button_white{
+	background-color: #cccccc;
+}
+
+.button_blue:hover, .button_green:hover, .button_white:hover, .button_red:hover{
+	opacity: 0.9;
+}
+
+.jspDrag{
+	background: #393939;
+	border: 1px solid #292929;
+}
+
+#index_chat .jspDrag, .offer_show_chat .jspDrag, #index_chat_mode .jspDrag{
+	background: #393939;
+	border: 1px solid #292929;
+	width: 5px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+	background: rgba(0,0,0,0);
+}
+
+#news_mark, textarea#message, textarea#award_text, .markItUpHeader, .emoji-wysiwyg-editor{
+	background-color: #393939;
+}
+
+#news_mark, textarea#message, textarea#award_text, #my_party_about_area, #my_paper_about_area, .emoji-wysiwyg-editor{
+	border: 2px solid #ccc;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #292929;
+	cursor: pointer;
+}
+
+.dd-options{scrollbar-face-color: #393939;
+	scrollbar-shadow-color: #292929;
+	scrollbar-highlight-color:#292929;
+	scrollbar-3dlight-color: #292929;
+	scrollbar-darkshadow-color: #292929;
+	scrollbar-track-color: #292929;
+	scrollbar-arrow-color: #393939;
+}
+
+.chat_dates{
+	color: rgba(220,220,220,0.2);
+}
+
+.check_medal_wrap{
+	width: 4000px;
+	height: 2000px;
+	z-index: 10000;
+	background-color: rgba(40,40,40,0.9);
+	position: absolute;
+	top: -200px;
+}
