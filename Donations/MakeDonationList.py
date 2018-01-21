@@ -39,7 +39,7 @@ def addStringToUser(donation, user_dict):
     else:
         user_dict[number_unit[1]]=int(number_unit[0])
 
-def dict_to_text(donations, amount_of_ppl=20):
+def dict_to_text(donations, amount_of_ppl=20,filter=''):
     to_sort=[]
     name_to_value_donation=dict()
     for name in donations:
@@ -85,13 +85,43 @@ def dict_to_text(donations, amount_of_ppl=20):
     plt.xticks(y_pos, objects, rotation='vertical')
     plt.ylabel('Usage')
     plt.title('Donations')
-    plt.ylabel('donations sum in kk, oil=ore=300$, diamonds=1.5kk$, uran=2500$')
+    plt.ylabel('Donations in kk')
+    plt.text(5,max([i for i in performance])*0.9,"oil=ore=300$, diamonds=1.5kk$, uran=2500$")
     plt.tight_layout()
     plt.show()
 
+def get_Lottery_Tickets(donations):
+    to_del=[]
+    print(donations)
+    for k in donations:
+        if '[SIP]' in k:
+            to_del.append(k)
+    for k in to_del:
+        donations.pop(k,None)
+    name_to_tickets=dict()
+    for k in donations:
+        sum=0
+
+        for don in donations[k]:
+            print(don, donations[k][don])
+            if 'bbl' in don or 'kg' in don:
+                sum+=donations[k][don]
+        name_to_tickets[k]=int(sum/float(10000000))+int(0.1*sum/float(10000000))
+    print(name_to_tickets)
+    return name_to_tickets
+
+def get_numbers_for_each_user(name_tickets):
+    sum=np.sum([int(name_tickets[k]) for k in name_tickets])
+    print('Total tickets:',sum)
+    counter=1
+    for name in name_tickets:
+        print('Name: ',name,' Numbers: from and with,',counter,' to and with:',counter+name_tickets[name]-1,"\nAmount of tickets:",name_tickets[name], "Chance to win in a draw: ",100.0*(name_tickets[name]/float(sum)),' %',' Donations in kk: ',name_tickets[name]-int(name_tickets[name]*0.1))
+        counter+=name_tickets[name]
 
 
 
 
-dict_to_text(get_Members_list_from_donation())
+
+get_numbers_for_each_user(get_Lottery_Tickets(get_Members_list_from_donation()))
+#dict_to_text(get_Members_list_from_donation())
 #read_war()
