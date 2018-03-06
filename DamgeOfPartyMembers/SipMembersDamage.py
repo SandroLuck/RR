@@ -30,7 +30,7 @@ def get_damage_of_sip_members(file='Rival Regions.html'):
             print(i)
         plot_party_damage_pie(lis_party_data)
 
-def plot_party_damage_pie(lis,tag='[SIP]',rounding=4):
+def plot_party_damage_pie(lis,tag='[}GOS{]',rounding=4):
     plt.clf()
     sum_att=0
     lab_att=[]

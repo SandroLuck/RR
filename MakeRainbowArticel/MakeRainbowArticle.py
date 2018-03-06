@@ -103,7 +103,7 @@ def first_letter_slightly_different(s):
         chars=list(i)
         to_set=''
         if chars[0].isupper():
-            to_set='[size=25px][color=#ffc]'+chars[0]+'[/color][/size]'
+            to_set='[size=25px]'+chars[0]+'[/color][/size]'
             chars[0]=''
         rest=''.join(chars)
         to_set+='[size=20px]'+rest+" "+'[/size]'
@@ -111,15 +111,55 @@ def first_letter_slightly_different(s):
     print(s_lis)
     return ''.join(s_lis)
 
+def first_letter_yellow_title(s):
+    s_lis=s.split()
+    s_lis[0]=''.join(list(s_lis[0])[1:])
+    for nr,i in enumerate(s_lis):
+        chars=list(i)
+        to_set=''
+        if chars[0].isupper():
+            to_set='[size=70px][color=#f00]'+chars[0]+'[/color][/size]'
+            print(to_set)
+            chars[0]=''
+        print(chars)
+        rest=''.join(chars)
+        to_set+='[size=35px][color=#fff]'+rest+" "+'[/color][/size]'
+        s_lis[nr]=to_set
+    print(s_lis)
+    return '[center][rr][b]'+''.join(s_lis)+'[/b][/rr][/center]'
+
+def first_letter_slightly_different_normal(s):
+    s_lis=s.split()
+    for nr,i in enumerate(s_lis):
+        chars=list(i)
+        to_set=''
+        if chars[0].isupper():
+            to_set='[size=25px]'+chars[0]+'[/size]'
+            chars[0]=''
+        rest=''.join(chars)
+        to_set+='[size=20px]'+rest+" "+'[/size]'
+        s_lis[nr]=to_set
+    return "[center]"+''.join(s_lis)+"[/center]"
+
+def make_Image(s):
+    return '[center][img]'+s+'[/img][/center]\n'
+
 
 def file_changer():
     with open('file.txt') as f:
         with open('out.txt','w+') as w:
             for line in f:
-                if list(line)[0]=='|':
+                if list(line)[0]=='h' and list(line)[1]=='t':
+                    w.write(make_Image(line))
+                elif list(line)[0]=='|':
                     w.write(first_letter_yellow_title(line)+"\n"+"\n")
                 else:
-                    w.write(first_letter_slightly_different(line)+"\n"+"\n")
+                    w.write(first_letter_slightly_different_normal(line)+"\n"+"\n")
+            #w.write('[center][rr]'+'[size=70px]Powered by the [color=#f00]S[/color]wiss [color=#f00]G[/color]uards[/size][/rr][/center]'+"\n")
+            #w.write('[center][url=http://rivalregions.com/#slide/party/87981][img]http://static.rivalregions.com/static/parties/981/87981_1519158044_big.png[/img][/url][/center]'+"\n")
+            #w.write('[center][rr][size=30px]http://rivalregions.com/#slide/party/87981[/size][/rr][/center]'+"\n")
+            w.write('[center][rr][b][size=70px][color=#f00]K[/color][/size][size=35px][color=#fff]ings [/color][/size][size=70px][color=#f00]O[/color][/size][size=35px][color=#fff]re [/color][/size][/b][/rr][/center][center][url= http://m.rivalregions.com/#factory/index/27679][img]https://media.giphy.com/media/39uiEJ9bEXgL03H1oN/giphy.gif[/img][/url][/center]'+"\n")
+            w.write('[center][rr][size=30px]http://rivalregions.com/#factory/index/27679[/size][/rr][/center]'+"\n")
 
 file_changer()
 s="Die Mine der Könige"

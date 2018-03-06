@@ -44,7 +44,7 @@ def dict_to_text(donations, amount_of_ppl=20,filter=''):
     name_to_value_donation=dict()
     print(donations)
     for name in donations:
-        if "SIP" in name:
+        if "GODS" in name:
             for donation in donations[name]:
                 if '$' in donation:
                     if name in name_to_value_donation:
@@ -75,27 +75,22 @@ def dict_to_text(donations, amount_of_ppl=20,filter=''):
     don_list=''
     not_list=['Mesch','White','Frisch','Alan','Helljumper','Mac']
     not_list=['sostupidtowriteblalalal']
-    for v in to_sort[:25]:
+    for v in to_sort[:50]:
         name=v[0]
         if(not_in_list(name,not_list)):
             sum=v[1]/ float(1000000000)
             for donation in donations[name]:
                 don_list+=str(name+" "+str(donation)+" "+ str(donations[name][donation] / float(1000000))+" "+"in kkk\n")
-            objects.append(name)
+            objects.append(name+' '+str(sum)+'kkk')
             performance.append(sum)
     #Make bar chart
-    y_pos = np.arange(len(objects))
     print(don_list)
-    plt.bar(y_pos, performance, align='center')
-    plt.xticks(y_pos, objects, rotation='vertical')
+    plt.pie(performance, labels=objects, startangle=90, radius=1.0, rotatelabels=True)
     plt.ylabel('Usage')
-    plt.autoscale(enable=True, axis='y')
     plt.title('Donations')
     plt.ylabel('Donations in kkk')
-    plt.text(5,max([i for i in performance])*0.9,"oil=ore=300$, diamonds=1.5kk$, uran=2500$")
-    plt.text(5,max([i for i in performance])*0.9,"oil=ore=300$, diamonds=1.5kk$, uran=2500$")
-    plt.tight_layout()
-    plt.show()
+    plt.text(-0.7,0,"oil=ore=300$, diamonds=1.5kk$, uran=2500$")
+    plt.savefig('donations.png',bbox_inches='tight',pad_inches=1)
 def not_in_list(text,not_list):
     for i in not_list:
         if i in text:
@@ -137,7 +132,7 @@ def get_numbers_for_each_user(name_tickets):
     #Make bar chart
     y_pos = np.arange(len(objects))
 
-    plt.bar(y_pos, performance, align='center')
+    plt.pie(y_pos, performance, align='center')
     plt.xticks(y_pos, objects, rotation='vertical')
     plt.ylabel('Usage')
     plt.title('Tickets')

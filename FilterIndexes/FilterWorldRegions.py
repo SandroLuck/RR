@@ -2,6 +2,8 @@ from bs4 import BeautifulSoup
 import io
 import matplotlib.pyplot as plt
 import numpy as np
+from operator import itemgetter
+
 
 def read_world_regions(file='Rival Regions.html'):
     with io.open(file, mode='r', encoding='utf-8') as f:
@@ -73,4 +75,55 @@ def plot_for_all_indexes():
     plot_for_an_indexe('Military index','Military',regions)
     plot_for_an_indexe('House index','House',regions,til_limit=10)
 
+def plot_distribution_of_citizens(file='country.html'):
+    regions=read_world_regions()
+    with io.open(file, mode='r', encoding='utf-8') as f:
+        html = f.read()
+        soup = BeautifulSoup(html, 'html.parser')
+        tds = soup.findAll('a', {"class": "dot hov2"}, recursive=True)
+        name_country=tds[0].contents[0]
+        lis_region_data=[]
+        lable_regs=[]
+        size_regs=[]
+        to_sort=[]
+        country_regs=soup.findAll('div', {"class": "short_details tc tip header_buttons_hover float_left"}, recursive=True)
+        for i in country_regs:
+            to_sort.append([i.contents[0].strip()+" citizens:"+str(regions[i.contents[0].strip()]['Citizens']),regions[i.contents[0].strip()]['Citizens']])
+        to_sort.sort(key=itemgetter(1), reverse=True)
+        for i in to_sort:
+            lable_regs.append(i[0])
+            size_regs.append(i[1])
+
+        plt.clf()
+        patches, texts = plt.pie(size_regs, labels=lable_regs, startangle=90, radius=1.0, rotatelabels=True)
+        plt.legend(patches, lable_regs, loc='center left', bbox_to_anchor=(1.0, 0.5),
+                   fontsize=8)
+        plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+        plt.text(0, 0, name_country+" Citizen Distribution", horizontalalignment='center', verticalalignment='center',
+                 fontweight='bold')
+        plt.savefig(name_country + '.png', dpi=300, bbox_inches='tight')
+
+def plot_distribution_of_citizens_world():
+    regions=read_world_regions()
+    lable_regs=[]
+    size_regs=[]
+    to_sort=[]
+    for i in regions:
+        to_sort.append([i, regions[i]['Citizens']])
+    to_sort.sort(key=itemgetter(1), reverse=True)
+    for i in to_sort[:50]:
+        lable_regs.append(i[0]+' citizens:'+str(i[1]))
+        size_regs.append(i[1])
+
+    plt.clf()
+    patches, texts = plt.pie(size_regs, labels=lable_regs, startangle=90, radius=1.0, rotatelabels=True)
+    plt.legend(patches, lable_regs, loc='center left', bbox_to_anchor=(1.0, 0.5),
+                  fontsize=8)
+    plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    plt.text(0, 0, "Wolrd"+" Citizen Distribution", horizontalalignment='center', verticalalignment='center',
+                 fontweight='bold')
+    plt.savefig("World Citizens"+ '.png', dpi=300, bbox_inches='tight')
+
+#plot_distribution_of_citizens_world()
+#plot_distribution_of_citizens()
 plot_for_all_indexes()

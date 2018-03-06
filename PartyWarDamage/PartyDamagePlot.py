@@ -18,9 +18,10 @@ def get_damage_side_party(file='Rival Regions.html',til_plot=50):
             name=name_and_side[0]
             side=name_and_side[2].contents[0]
             damage=int(t.findAll('td', {"class": "list_level"}, recursive=True)[0].contents[0].contents[0].replace('.',''))
+            print(name,side,damage)
             lis_party_data.append([name,side,damage])
         lis_party_data.sort(key=itemgetter(2), reverse=True)
-
+        print(lis_party_data)
         make_plot_from_list(lis_party_data[:til_plot])
 
         print_percentage_of_side(lis_party_data[:til_plot])
@@ -30,9 +31,7 @@ def make_plot_from_list(lis):
     objects = []
     performance = []
     colors=[]
-    don_list = ''
-    not_list = ['Mesch', 'White', 'Frisch', 'Alan', 'Helljumper', 'Mac']
-    not_list = ['sostupidtowriteblalalal']
+    print(lis)
     for v in lis[:25]:
         objects.append(v[0])
         performance.append(v[2])
@@ -45,7 +44,6 @@ def make_plot_from_list(lis):
     ax = plt.gca()
     ax.axes.get_yaxis().get_major_formatter().set_scientific(False)
     y_pos = np.arange(len(objects))
-    print(don_list)
     plt.bar(y_pos, performance,color=colors, align='center')
     plt.xticks(y_pos, objects, rotation='vertical')
     plt.ylabel('Usage')
