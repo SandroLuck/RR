@@ -9,6 +9,7 @@ def get_damage_of_sip_members(file='Rival Regions.html'):
         html = f.read()
         soup = BeautifulSoup(html, 'html.parser')
         tds = soup.findAll('tr', {"class": "list_link header_buttons_hover turn_0 list_only"}, recursive=True)
+        print(tds)
         lis_party_data=[]
         for t in tds:
             name_and_side=t.findAll('td', {"class": "list_name pointer"}, recursive=True)[0].contents
@@ -24,13 +25,13 @@ def get_damage_of_sip_members(file='Rival Regions.html'):
             lv=int(t.findAll('td', {"class": "list_level"}, recursive=True)[0].contents[0].contents[0].replace('.',''))
             damage=int(t.findAll('td', {"class": "list_level"}, recursive=True)[1].contents[0].contents[0].replace('.',''))
             lis_party_data.append([name,lv,damage])
-
+        print(lis_party_data)
         lis_party_data.sort(key=itemgetter(2), reverse=True)
         for i in lis_party_data:
             print(i)
         plot_party_damage_pie(lis_party_data)
 
-def plot_party_damage_pie(lis,tag='[}GOS{]',rounding=4):
+def plot_party_damage_pie(lis,tag='[GODS]',rounding=4):
     plt.clf()
     sum_att=0
     lab_att=[]
@@ -44,7 +45,7 @@ def plot_party_damage_pie(lis,tag='[}GOS{]',rounding=4):
             print(i[0],i[2],' Percentage of party damage:'+str(100.0*round((i[2]/float(sum_att)),rounding)))
             lab_att.append(i[0]+" "+str(round(100.0*round((i[2]/float(sum_att)),rounding),rounding))+' %')
             size_att.append(100.0*round((i[2]/float(sum_att)),rounding))
-    patches, texts = plt.pie(size_att, labels=lab_att, startangle=90, radius=1.0, rotatelabels=True)
+    patches, texts = plt.pie(size_att, labels=lab_att, startangle=90, radius=1.0)
     plt.legend(patches, lab_att, loc='center left', bbox_to_anchor=(1.0, 0.5),
                fontsize=8)
     plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.

@@ -10,13 +10,18 @@ def get_damage_side_party(file='Rival Regions.html',til_plot=50):
     with io.open(file, mode='r', encoding='utf-8') as f:
         html = f.read()
         soup = BeautifulSoup(html, 'html.parser')
-        tds = soup.findAll('tr', {"class": "list_link header_buttons_hover turn_0 list_only"}, recursive=True)
+        tds = soup.findAll('tr', {"class": "list_link header_buttons_hover"}, recursive=True)
         members = []
         lis_party_data=[]
         for t in tds:
             name_and_side=t.findAll('td', {"class": "list_name pointer"}, recursive=True)[0].contents
             name=name_and_side[0]
-            side=name_and_side[2].contents[0]
+            side=name_and_side[1].contents[0]
+            if 'Defending side' in side:
+                side='Defending side'
+            else:
+                side='Attacking side'
+            print(name,side)
             damage=int(t.findAll('td', {"class": "list_level"}, recursive=True)[0].contents[0].contents[0].replace('.',''))
             print(name,side,damage)
             lis_party_data.append([name,side,damage])
@@ -67,7 +72,7 @@ def print_percentage_of_side(lis, rounding=3,side='Attacking side'):
             print(i[0],i[2],' Percentage of'+side+':'+str(100.0*round((i[2]/float(sum_att)),rounding)))
             lab_att.append(i[0]+" "+str(round(100.0*round((i[2]/float(sum_att)),rounding),rounding))+' %')
             size_att.append(100.0*round((i[2]/float(sum_att)),rounding))
-    patches, texts = plt.pie(size_att, labels=lab_att, startangle=90, radius=1.0, rotatelabels=True)
+    patches, texts = plt.pie(size_att, labels=lab_att, startangle=90, radius=1.0)
     plt.legend(patches, lab_att, loc='center left', bbox_to_anchor=(1.0, 0.5),
                fontsize=8)
     plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
