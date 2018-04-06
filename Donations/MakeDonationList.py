@@ -53,19 +53,19 @@ def dict_to_text(donations, amount_of_ppl=20,filter=''):
                         name_to_value_donation[name] = int(donations[name][donation])
                 elif 'bbl' in donation or 'kg' in donation:
                     if name in name_to_value_donation:
-                        name_to_value_donation[name] += int(donations[name][donation])*300
+                        name_to_value_donation[name] += int(donations[name][donation])*180
                     else:
-                        name_to_value_donation[name] = int(donations[name][donation])*300
+                        name_to_value_donation[name] = int(donations[name][donation])*180
                 elif 'pcs' in donation:
                     if name in name_to_value_donation:
-                        name_to_value_donation[name] += int(donations[name][donation]) * 1500000
+                        name_to_value_donation[name] += int(donations[name][donation]) * 1200000
                     else:
-                        name_to_value_donation[name] = int(donations[name][donation]) * 1500000
+                        name_to_value_donation[name] = int(donations[name][donation]) * 1200000
                 elif 'g' in donation:
                     if name in name_to_value_donation:
-                        name_to_value_donation[name] += int(donations[name][donation]) * 2500
+                        name_to_value_donation[name] += int(donations[name][donation]) * 1750
                     else:
-                        name_to_value_donation[name] = int(donations[name][donation]) * 2500
+                        name_to_value_donation[name] = int(donations[name][donation]) * 1750
 
     for k in name_to_value_donation:
         to_sort.append([k,name_to_value_donation[k]])
