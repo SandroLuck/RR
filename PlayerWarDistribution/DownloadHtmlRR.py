@@ -261,14 +261,14 @@ myheader = \
         {
             "Host": "rivalregions.com",
             "Connection": "keep-alive",
-            "Accept": "text/html, */*; q=0.01",
-            "X-Requested-With": "XMLHttpRequest",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+"X-Requested-With": "XMLHttpRequest",
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36",
             "DNT": "1",
             "Referer": "http://rivalregions.com/",
             "Accept-Encoding": "gzip, deflate",
             "Accept-Language": "en-US,en;q=0.9,de;q=0.8",
-            "Cookie": "_ym_uid=1511307282951464034; fbm_1457231197822920=base_domain=.rivalregions.com; __cfduid=dedafd79af26a6580a9e0713059811ff81520122926; __atuvc=1%7C11%2C4%7C12; rr=676846f260aab7709166518549808287; rr_id=2000248613; rr_add=41245e12e10c55b3d0e8b0204c7d20f1; _ym_isad=2; PHPSESSID=ht9nvrmd3gavdak8df5lutod54; _ym_visorc_20472997=w"
+            "Cookie": "_ym_uid=1511307282951464034; fbm_1457231197822920=base_domain=.rivalregions.com; __cfduid=dedafd79af26a6580a9e0713059811ff81520122926; __atuvc=11%7C17; _ym_isad=2; rr=242ddb3ff07c8929a1df170193feaa2a; rr_id=2000248613; rr_add=fe22fac69be3cb99a0300ce36fc74540; PHPSESSID=sr0ng4usfisprc72n5bdpovlf1; _ym_visorc_20472997=w"
         }
 
 

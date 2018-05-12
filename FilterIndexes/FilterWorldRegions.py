@@ -125,5 +125,5 @@ def plot_distribution_of_citizens_world():
     plt.savefig("World Citizens"+ '.png', dpi=300, bbox_inches='tight')
 
 #plot_distribution_of_citizens_world()
-#plot_distribution_of_citizens()
-plot_for_all_indexes()
+plot_distribution_of_citizens()
+#plot_for_all_indexes()

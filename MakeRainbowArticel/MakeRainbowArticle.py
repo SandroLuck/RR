@@ -111,9 +111,12 @@ def first_letter_slightly_different(s):
     print(s_lis)
     return ''.join(s_lis)
 
-def first_letter_yellow_title(s):
+def first_letter_red_title(s,only_word=False):
     s_lis=s.split()
-    s_lis[0]=''.join(list(s_lis[0])[1:])
+    if only_word:
+        s_lis[0]=''.join(list(s_lis[0]))
+    else:
+        s_lis[0]=''.join(list(s_lis[0])[1:])
     for nr,i in enumerate(s_lis):
         chars=list(i)
         to_set=''
@@ -121,45 +124,76 @@ def first_letter_yellow_title(s):
             to_set='[size=70px][color=#f00]'+chars[0]+'[/color][/size]'
             print(to_set)
             chars[0]=''
-        print(chars)
         rest=''.join(chars)
         to_set+='[size=35px][color=#fff]'+rest+" "+'[/color][/size]'
         s_lis[nr]=to_set
-    print(s_lis)
-    return '[center][rr][b]'+''.join(s_lis)+'[/b][/rr][/center]'
+    if(only_word):
+        return '[rr][b]' + ''.join(s_lis) + '[/b][/rr]'
+    else:
+        return '[center][rr][b]'+''.join(s_lis)+'[/b][/rr][/center]'
 
 def first_letter_slightly_different_normal(s):
     s_lis=s.split()
     for nr,i in enumerate(s_lis):
         chars=list(i)
-        to_set=''
+        to_set=u''
         if chars[0].isupper():
-            to_set='[size=25px]'+chars[0]+'[/size]'
-            chars[0]=''
-        rest=''.join(chars)
-        to_set+='[size=20px]'+rest+" "+'[/size]'
+            to_set=u'[size=22px]'+chars[0]+'[/size]'
+            chars[0]=u''
+        rest=u''.join(chars)
+        to_set+=u'[size=18px]'+rest+" "+'[/size]'
         s_lis[nr]=to_set
-    return "[center]"+''.join(s_lis)+"[/center]"
+    return u"[center]"+''.join(s_lis)+u"[/center]"
+def make_vote(s):
+    pos_votes=s.split(',')
+    to_append=u'\n[center][vote]'+first_letter_red_title(pos_votes[0][1:],only_word=True)+"[/vote]\n \n \n \n \n \n \n\n"
+    for i in pos_votes[1:]:
+        to_append+=u'[v]'+first_letter_red_title(i,only_word=True)+"[/v]\n \n \n \n \n \n \n\n"
+    to_append+=u"[/center]\n"
+    return to_append
 
 def make_Image(s):
     return '[center][img]'+s+'[/img][/center]\n'
-
+def makeLineSpacer():
+    #return '[center][img]https://i.imgur.com/T7sMBze.png[/img][/center]'
+    return '[center][img]http://andyhotel.co/wp-content/uploads/2017/10/divider.png[/img][/center]'
+def bottomSpacer():
+    return '[center][img]https://i.imgur.com/5BQKinv.png[/img][/center]'
+def topSpacer():
+    return '[center][img]https://i.imgur.com/Qki2y6O.png[/img][/center]'
+def lineSpacer():
+    return '[center][img]https://i.imgur.com/dJjc1IT.png[/img][/center]'
+def articleEnder():
+    return '[center][img]https://i.imgur.com/mKEgFUn.png[/img][/center]'
 
 def file_changer():
-    with open('file.txt') as f:
-        with open('out.txt','w+') as w:
+    with open('file.txt',encoding='utf-8') as f:
+        with open('out.txt','w+',encoding="utf-8") as w:
+            w.write(lineSpacer())
+
+            w.write(topSpacer())
             for line in f:
+                print(line)
                 if list(line)[0]=='h' and list(line)[1]=='t':
                     w.write(make_Image(line))
+                elif list(line)[0]=='&':
+                    w.write(makeLineSpacer())
                 elif list(line)[0]=='|':
-                    w.write(first_letter_yellow_title(line)+"\n"+"\n")
+                    w.write(first_letter_red_title(line) + "\n" + "\n")
+                elif  list(line)[0]=='$':
+                    w.write(make_vote(line)+"\n")
                 else:
                     w.write(first_letter_slightly_different_normal(line)+"\n"+"\n")
+
             #w.write('[center][rr]'+'[size=70px]Powered by the [color=#f00]S[/color]wiss [color=#f00]G[/color]uards[/size][/rr][/center]'+"\n")
             #w.write('[center][url=http://rivalregions.com/#slide/party/87981][img]http://static.rivalregions.com/static/parties/981/87981_1519158044_big.png[/img][/url][/center]'+"\n")
             #w.write('[center][rr][size=30px]http://rivalregions.com/#slide/party/87981[/size][/rr][/center]'+"\n")
-            w.write('[center][rr][b][size=70px][color=#f00]K[/color][/size][size=35px][color=#fff]ings [/color][/size][size=70px][color=#f00]O[/color][/size][size=35px][color=#fff]re [/color][/size][/b][/rr][/center][center][url= http://m.rivalregions.com/#factory/index/27679][img]https://media.giphy.com/media/39uiEJ9bEXgL03H1oN/giphy.gif[/img][/url][/center]'+"\n")
-            w.write('[center][rr][size=30px]http://rivalregions.com/#factory/index/27679[/size][/rr][/center]'+"\n")
+            #w.write('[center][rr][b][size=70px][color=#f00]K[/color][/size][size=35px][color=#fff]ings [/color][/size][size=70px][color=#f00]O[/color][/size][size=35px][color=#fff]re [/color][/size][/b][/rr][/center][center][url= http://m.rivalregions.com/#factory/index/27679][img]https://media.giphy.com/media/39uiEJ9bEXgL03H1oN/giphy.gif[/img][/url][/center]'+"\n")
+            #w.write('[center][rr][size=30px]http://rivalregions.com/#factory/index/27679[/size][/rr][/center]'+"\n")
+            w.write(articleEnder())
+            w.write(bottomSpacer())
+            w.write(lineSpacer())
+
 
 file_changer()
 s="Die Mine der Könige"

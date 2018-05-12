@@ -3,27 +3,25 @@
 <br />
 <b>Warning</b>:  include(): Failed opening '/work/impact/configs/config_game.php' for inclusion (include_path='.:/usr/share/pear:/usr/share/php') in <b>/work/impact/public/static/icons.theme</b> on line <b>43</b><br />
 .header_sidebar{
-	margin-top: -90px;
+	margin-top: -10px;
 }
 
 .discount_yellow{
-	width: 47px;
+	width: 94px;
 	margin-top: 6px;
-			margin-top: 1px;
-		font-size: 12px;
-		}
+	}
 
 .header_menu_item_guide_news{
-	padding-left: 25px !important;
+	padding-left: 50px !important;
 }
 
 .header_menu_item_guide{
-	padding-left: 7px !important;
+	padding-left: 14px !important;
 }
 
 .header_my_fill_bar_yup{
-	margin-top: 11px;
-	margin-right: 3px;
+	margin-top: 36px;
+	margin-right: 6px;
 	width: 30px;
 	padding-left: 0px;
 	padding-right: 0px;
@@ -32,7 +30,7 @@
 #header_developers_data{
 	position: absolute;
 	right: 0px;
-	top: 50px;
+	top: 100px;
 	width: auto;
 	padding-left: 5px;
 	padding-right: 5px;
@@ -40,46 +38,46 @@
 
 #header_my_money{
 	font-family: 'Impact';
-	font-size: 18px;
+	font-size: 24px;
 	float: left;
-	margin-top: 6px;
-	margin-left: 6px;	
+	margin-top: 23px;
+	margin-left: 12px;	
 }
 
 #header_my_fill_bar{
-	width: 52px;
-	height: 50px;
+	width: 75px;
+	height: 100px;
 	background-repeat: no-repeat;
 	background-position: 15px 0px;
-	background-image: url(/static/images/icons/white/energy_fill.png);
+	background-image: url(/static/images/icons/white/energy_fill_big.png);
 }
 
 #header_my_bar, #header_my_exp{
 	cursor: pointer;
-	width: 10px;
-	height: 50px;
+	width: 20px;
+	height: 100px;
 	float: left;
 }
 
 #header_my_bar_inner, #header_my_exp_inner{
-	width: 10px;
-	height: 50px;
+	width: 20px;
+	height: 100px;
 }
 
 #header_my_bar_close, #header_my_exp_close{
-	width: 10px;
-	height: 50px;
+	width: 20px;
+	height: 100px;
 }
 
 #header_ajax{
 	cursor: pointer;
 	display: none;
 	float: right;
-	width: 50px;
-	height: 50px;
+	width: 100px;
+	height: 100px;
 	background-repeat: no-repeat;
-	background-position: 13px 13px;
-	background-image: url(/static/images/icons/white/ajax.png);
+	background-position: 26px 26px;
+	background-image: url(/static/images/icons/white/ajax_big.png);
 }
 
 .index_pop{
@@ -151,15 +149,15 @@
 .header_buttons{
 	cursor: pointer;
 	float: right;
-	width: 50px;
-	height: 50px;
+	width: 100px;
+	height: 100px;
 	background-repeat: no-repeat;
-	background-position: 9px 9px;
+	background-position: 18px 18px;
 }
 
 #header{
 	width: 100%;
-	height: 50px;
+	height: 100px;
 }
 
 #header_short{
@@ -167,7 +165,7 @@
 	right: 0px;
 	top: 0px;
 	width: 50%;
-	height: 50px;
+	height: 100px;
 	float: left;
 }
 
@@ -177,124 +175,124 @@
 	overflow: hidden;
 	height: 0px;
 	left: 0px;
-	top: 50px;
+	top: 100px;
 	z-index: 100;
 }
 
 #header_long{
 	width: 50%;
-	height: 50px;
+	height: 100px;
 	float: left;
 }
 
 #header_friends{
-	background-image: url(/static/images/icons/white/header_friends.png);
+	background-image: url(/static/images/icons/white/header_friends_big.png);
 }
 
 .fullscreen_on{
-	background-image: url(/static/images/icons/white/fullscreen_on.png);
+	background-image: url(/static/images/icons/white/fullscreen_on_big.png);
 }
 
 .fullscreen_off{
-	background-image: url(/static/images/icons/white/fullscreen_off.png);
+	background-image: url(/static/images/icons/white/fullscreen_off_big.png);
 }
 
 #header_chat{
-	background-image: url(/static/images/icons/white/header_chat.png);
+	background-image: url(/static/images/icons/white/header_chat_big.png);
 }
 
 #header_money{
-	background-image: url(/static/images/header_money.png);
+	background-image: url(/static/images/header_money_big.png);
 }
 
 #header_setups{
-	background-image: url(/static/images/icons/white/header_setups.png);
+	background-image: url(/static/images/icons/white/header_setups_big.png);
 }
 
 
 #header_menu{
 	width: 100%;
-	height: 30px;
+	height: 60px;
 }
 
 .header_menu_item{
 	cursor: pointer;
 	float: left;
 	text-align: left;
-	padding: 7px;
-	height: 16px;
-	padding-left: 30px;
-	font-size: 13px;
+	padding: 19px;
+	height: 22px;
+	padding-left: 60px;
+	font-size: 18px;
 	font-weight: bold;
-	padding-right: 6px;
+	padding-right: 12px;
 }
 
 .item_menu{
 	background-repeat: no-repeat;
-	background-position: 7px 7px;
-	background-size: 16px 16px;
+	background-position: 14px 14px;
+	background-size: 32px 32px;
 }
 
 .map_menu{
-	background-image: url(/static/images/icons/white/map_menu.png?2);
+	background-image: url(/static/images/icons/white/map_menu_big.png?2);
 }
 
 .perks_menu{
-	background-image: url(/static/images/icons/white/perks_menu.png);
+	background-image: url(/static/images/icons/white/perks_menu_big.png);
 }
 
 .work_menu{
-	background-image: url(/static/images/icons/white/work_menu.png);
+	background-image: url(/static/images/icons/white/work_menu_big.png);
 }
 
 .party_menu{
-	background-image: url(/static/images/icons/white/party_menu.png);
+	background-image: url(/static/images/icons/white/party_menu_big.png);
 }
 
 .parliament_menu{
-	background-image: url(/static/images/icons/white/parliament_menu.png);
+	background-image: url(/static/images/icons/white/parliament_menu_big.png);
 }
 
 .logout_menu{
-	background-image: url(/static/images/icons/white/logout.png);
+	background-image: url(/static/images/icons/white/logout_big.png);
 }
 
 .index_menu{
-	background-image: url(/static/images/icons/white/index_menu.png);
+	background-image: url(/static/images/icons/white/index_menu_big.png);
 }
 
 .storage_menu{
-	background-image: url(/static/images/icons/white/storage_menu.png);
+	background-image: url(/static/images/icons/white/storage_menu_big.png);
 }
 
 .wars_menu{
-	background-image: url(/static/images/icons/white/war.png);
+	background-image: url(/static/images/icons/white/war_big.png);
 }
 
 #reload_menu, #back_menu, #message_menu, #auction_menu{
-	width: 30px;
-	height: 30px;
+	width: 60px;
+	height: 60px;
 	padding: 0px;
 	cursor: pointer;
-	background-image: url(/static/images/icons/white/reload_menu.png);
+	background-image: url(/static/images/icons/white/reload_menu_big.png);
 	background-repeat: no-repeat;
-	background-position: 7px 7px;
+	background-position: 14px 14px;
 }
 
 #back_menu{
-	background-image: url(/static/images/icons/white/back_menu.png);
+	background-image: url(/static/images/icons/white/back_menu_big.png);
 }
 
 #message_menu{
-	background-image: url(/static/images/icons/white/menu_letter.png);
+	background-image: url(/static/images/icons/white/menu_letter_big.png);
 }
 
 #auction_menu{
-	background-image: url(/static/images/icons/white/auction.png);
+	background-image: url(/static/images/icons/white/auction_big.png);
 }
 
 #news_menu{
-	background-image: url(/static/images/icons/white/news.png);
+	background-image: url(/static/images/icons/white/news_big.png);
 }
 
 .list_request, .list_request_region, .list_elect, .list_parlament_elect, .list_leader_elect{
@@ -488,5 +486,5 @@
 }
 
 .note_top{
-	top: 100px;
+	top: 180px;
 }

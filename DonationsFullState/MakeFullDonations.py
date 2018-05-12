@@ -9,8 +9,8 @@ from collections import OrderedDict
 from bs4 import BeautifulSoup as bs
 import matplotlib.pyplot as plt
 from operator import itemgetter
-stop_day=4
-stop_moth='march'
+stop_day=1
+stop_moth='may'
 stop_year=2018
 oberst = []
 divisionar = []
@@ -59,15 +59,16 @@ myheader = \
         {
             "Host": " rivalregions.com",
             "Connection": " keep-alive",
-            "Accept": " text/html, */*; q=0.01",
+            "Accept": "*/*",
             "X-Requested-With": " XMLHttpRequest",
             "User-Agent": " Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36",
             "DNT": " 1",
             "Referer": " http//rivalregions.com/",
             "Accept-Encoding": " gzip, deflate",
             "Accept-Language": " en-US,en;q=0.9,de;q=0.8",
-"Cookie": "_ym_uid=1511307282951464034; fbm_1457231197822920=base_domain=.rivalregions.com; __cfduid=dedafd79af26a6580a9e0713059811ff81520122926; _ym_isad=2; PHPSESSID=dq3b0av4ieevspa5kt0mus0p67; __atuvc=5%7C13%2C2%7C14; __atuvs=5ac32c881d9b0a5b000; _ym_visorc_20472997=w; rr=cd7f7f17d9ce17752ebe9d85876d4282; rr_id=2000248613; rr_add=fe22fac69be3cb99a0300ce36fc74540"
+            "Cookie": "_ym_uid=1511307282951464034; fbm_1457231197822920=base_domain=.rivalregions.com; __cfduid=dedafd79af26a6580a9e0713059811ff81520122926; _iub_cs-76236742=%7B%22consent%22%3Atrue%2C%22timestamp%22%3A%222018-05-05T11%3A33%3A20.152Z%22%2C%22version%22%3A%221.2.2%22%2C%22id%22%3A76236742%7D; PHPSESSID=u6f7ff1d5m8giitqirl2526ab3; _ym_visorc_20472997=w; _ym_isad=2; __atuvc=13%7C18%2C26%7C19; __atuvs=5af5c88054d7415c006; rr=0236ebfe6c3f50cfcc1d00ee89f4128b; rr_id=2000248613; rr_add=2572d4ef7b9a5a5360e9017d0648ac39"
         }
+
 def read_donationats_for_region(myheader,id,don_dict):
     url="http://rivalregions.com/listed/donated_regions/"+str(id)
     cont=True
@@ -157,9 +158,11 @@ def date_in_range(date):
 
 def make_donation_analysis(myheader,url="http://rivalregions.com/map/state_details/2433"):
     soup = get_soup_to_link(myheader, url)
+    print(soup)
     state_region_ids=[]
     players_to_dict=dict()
     regions = soup.findAll('div', {"class": "short_details tc tip header_buttons_hover float_left"}, recursive=True)
+    print("\n\nLength:",len(regions))
     for region in regions:
         region_id=region.get('action').split("/")[2]
         state_region_ids.append(int(region_id))
