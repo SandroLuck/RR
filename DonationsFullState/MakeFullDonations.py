@@ -1,3 +1,6 @@
+import os
+import sys
+from tkinter import *
 import urllib3
 import time
 
@@ -10,13 +13,8 @@ from bs4 import BeautifulSoup as bs
 import matplotlib.pyplot as plt
 from operator import itemgetter
 stop_day=1
-stop_moth='may'
-stop_year=2018
-oberst = []
-divisionar = []
-leutnant = []
-fourirer = []
-korporal = []
+stop_month= 'january'
+stop_year=2019
 
 def month_to_int(s):
     if s=='january':
@@ -46,6 +44,34 @@ def month_to_int(s):
     print("THIS IS NOT GOOD:",s)
     return -1000
 
+def int_to_month(i):
+    if i==1:
+        return 'january'
+    if i==2:
+        return 'february'
+    if i==3:
+        return 'march'
+    if i==4:
+        return 'april'
+    if i==5:
+        return 'may'
+    if i==6:
+        return 'june'
+    if i==7:
+        return 'july'
+    if i==8:
+        return 'august'
+    if i==9:
+        return 'september'
+    if i==10:
+        return 'october'
+    if i==11:
+        return 'november'
+    if i==12:
+        return 'december'
+    print("THIS IS NOT GOOD:",i)
+    return -1000
+
 def get_soup_to_link(header, link):
     http = urllib3.PoolManager()
 
@@ -54,20 +80,6 @@ def get_soup_to_link(header, link):
     with open('log.html', 'w+') as f:
         f.write(str(soup.encode("utf-8")))
     return soup
-
-myheader = \
-        {
-            "Host": "rivalregions.com",
-            "Connection": "keep-alive",
-            "Accept": "text/html, */*; q=0.01",
-            "X-Requested-With": " XMLHttpRequest",
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36",
-            "DNT": "1",
-            "Referer": "http//rivalregions.com/",
-            "Accept-Encoding": "gzip, deflate",
-            "Accept-Language": "en-US,en;q=0.9,de;q=0.8",
-            "Cookie": "__cfduid=dfed188bff52c1448ff18cfcb3e73ea151526622148; PHPSESSID=8cj1ipe9nsqarlrcs28atsn8l4; __atuvc=1%7C20; __atuvs=5afe67c00eda7b55000; _ym_uid=1526622145533126521; _ym_isad=2; _ym_visorc_20472997=w; _iub_cs-76236742=%7B%22consent%22%3Atrue%2C%22timestamp%22%3A%222018-05-18T05%3A42%3A34.985Z%22%2C%22version%22%3A%221.2.2%22%2C%22id%22%3A76236742%2C%22documentClicked%22%3Atrue%7D; rr=83cd9d0e40fd468129fae26ccf8eb42c; rr_id=2000248613; rr_add=14b133a737df0b1b43f1c3f65ae03c6b"
-        }
 
 def read_donationats_for_region(myheader,id,don_dict):
     url="http://rivalregions.com/listed/donated_regions/"+str(id)
@@ -148,15 +160,16 @@ def date_in_range(date):
         if stop_year > int(year):
             print(date, "stop")
             return False
-        if stop_year <= int(year) and month_to_int(stop_moth) > month_to_int(month):
+        if stop_year <= int(year) and month_to_int(stop_month) > month_to_int(month):
             print(date, "stop")
             return False
-        if stop_year <= int(year) and month_to_int(stop_moth) == month_to_int(month) and int(day) < stop_day:
+        if stop_year <= int(year) and month_to_int(stop_month) == month_to_int(month) and int(day) < stop_day:
             print(date, "stop")
             return False
     return True
 
-def make_donation_analysis(myheader,url="http://rivalregions.com/map/state_details/2433"):
+def make_donation_analysis(myheader,id,path):
+    url = "http://rivalregions.com/map/state_details/"+str(id)
     soup = get_soup_to_link(myheader, url)
     print(soup)
     state_region_ids=[]
@@ -168,8 +181,8 @@ def make_donation_analysis(myheader,url="http://rivalregions.com/map/state_detai
         state_region_ids.append(int(region_id))
         players_to_dict=read_donationats_for_region(myheader,region_id,players_to_dict)
     #players_to_dict=read_donationats_for_region(myheader,state_region_ids[0],players_to_dict)
-    make_stat(players_to_dict)
-def make_stat(player_dict):
+    make_stat(players_to_dict,path)
+def make_stat(player_dict,path):
     players=[]
     for play in player_dict:
         players.append([play,player_dict[play]])
@@ -193,8 +206,112 @@ def make_stat(player_dict):
     plt.legend(patches, leg, loc='center left', bbox_to_anchor=(1.0, 0.5),
                   fontsize=8)
     plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-    plt.text(0, 0, "Donations to Switzerland in kkk", horizontalalignment='center', verticalalignment='center',
+    plt.text(0, 0, "Donations in kkk", horizontalalignment='center', verticalalignment='center',
                  fontweight='bold')
-    plt.savefig("SwissDonations"+ '.png', dpi=200, bbox_inches='tight')
+    plt.savefig(path, dpi=200, bbox_inches='tight')
 
-make_donation_analysis(myheader)
+
+
+myheader = \
+        {
+            "Host": "rivalregions.com",
+            "Connection": "keep-alive",
+            'Upgrade-Insecure-Requests': '1',
+            "Accept": "text/html, */*; q=0.01",
+            "X-Requested-With": " XMLHttpRequest",
+            "User-Agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36',
+            "DNT": "1",
+            "Referer": "http//rivalregions.com/",
+            "Accept-Encoding": "gzip, deflate",
+            "Accept-Language": "en-US,en;q=0.9,de;q=0.8",
+            "Cookie": '__cfduid=dfed188bff52c1448ff18cfcb3e73ea151526622148; _ym_uid=1526622145533126521; _iub_cs-76236742=%7B%22consent%22%3Atrue%2C%22timestamp%22%3A%222018-05-18T05%3A42%3A34.985Z%22%2C%22version%22%3A%221.2.2%22%2C%22id%22%3A76236742%7D; PHPSESSID=q6q6igdtvclgda6elvkoud0ae0; __atuvc=1%7C3; __atuvs=5c3fad4d717eedd7000; _ym_d=1547677006; _ym_isad=1; _ym_visorc_20472997=w; rr=f49e0325f85aae2455c9ab47d745c85f; rr_id=2000248613; rr_add=151117b3509ac7758c52a27dd00ca409'
+        }
+
+
+def format_cookie(str):
+    split=str.split('\n')
+    header_dict=dict()
+    for line in split:
+        if 'HTTP' in line and 'GET' in line:
+            continue
+        key_val=line.split(':')
+        key = key_val[0].strip()
+        val = key_val[1].strip()
+        header_dict[key]=val
+    print(header_dict)
+    return header_dict
+
+class InputGuiSimple:
+    def __init__(self, master):
+        self.master = master
+        master.title("Meschs RR Donator")
+        self.title = Label(master, text="RR Donation Calculator!", width=50)
+        self.cookie_label = Label(master, text="Request Header:", width=50)
+        self.state_id_label = Label(master, text="State id:", width=50)
+        self.end_date_label = Label(master, text="End Date(YYYY.MM.DD):", width=50)
+        self.path_label = Label(master, text="Output Path(C:\\pathToPlace\\nameOfFile.png):", width=50)
+        self.error_text=StringVar()
+        self.error_hint = Label(master,textvariable=self.error_text, width=50,font=("Arial", 20),fg="red")
+
+
+        self.cookie_input = Entry(master, width=50)
+        self.state_id_input = Entry(master, width=50)
+        self.end_date_input = Entry(master, width=50)
+        self.path_entry = Entry(master, width=50)
+
+
+        self.make_donations_button = Button(master, text="Make Donations", command=self.makeDonations, width=50)
+
+        self.close_button = Button(master, text="Close", command=master.quit, width=50)
+
+
+        self.title.grid(row=0, column=0, columnspan=100)
+        self.error_hint.grid(row=1, column=0, columnspan=100)
+        self.cookie_label.grid(row=2, column=0, columnspan=100)
+        self.cookie_input.grid(row=3, column=0, columnspan=100)
+
+        self.state_id_label.grid(row=5, column=0, columnspan=100)
+
+        self.state_id_input.grid(row=8, column=0, columnspan=100)
+        self.end_date_label.grid(row=9, column=0, columnspan=100)
+        self.end_date_input.grid(row=10, column=0, columnspan=100)
+        self.path_label.grid(row=11, column=0, columnspan=100)
+        self.path_entry.grid(row=12, column=0, columnspan=100)
+        self.make_donations_button.grid(row=14, column=0, columnspan=100)
+        self.close_button.grid(row=15, column=0, columnspan=100)
+
+    def makeDonations(self):
+        #set date
+        try:
+            date_str=self.end_date_input.get().split('.')
+            stop_year=int(date_str[0])
+            stop_month=int_to_month(int(date_str[1].replace('0','')))
+            stop_day=int_to_month(int(date_str[2].replace('0','')))
+        except:
+            self.error_text.set('Issue with date')
+            return
+        path=self.path_entry.get().replace('\\','/')
+        print('path in is:',path)
+        folder='/'.join(path.split('/')[:-1])
+        print('folder is;',folder)
+        if not os.path.isdir(folder):
+            self.error_text.set('Issue with path')
+            return
+        header=format_cookie(self.cookie_input.get())
+        make_donation_analysis(header, int(self.state_id_input.get()),path)
+
+root = Tk()
+frame=Frame(root,
+            border=1,
+            relief=GROOVE,
+            background="white",
+            )
+Grid.rowconfigure(root, 0, weight=1)
+Grid.columnconfigure(root, 0, weight=1)
+frame.grid(row=30, column=100, sticky=N+S+E+W)
+
+
+
+my_gui = InputGuiSimple(root)
+
+root.mainloop()
