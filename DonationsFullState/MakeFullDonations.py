@@ -211,23 +211,6 @@ def make_stat(player_dict,path):
     plt.savefig(path, dpi=200, bbox_inches='tight')
 
 
-
-myheader = \
-        {
-            "Host": "rivalregions.com",
-            "Connection": "keep-alive",
-            'Upgrade-Insecure-Requests': '1',
-            "Accept": "text/html, */*; q=0.01",
-            "X-Requested-With": " XMLHttpRequest",
-            "User-Agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36',
-            "DNT": "1",
-            "Referer": "http//rivalregions.com/",
-            "Accept-Encoding": "gzip, deflate",
-            "Accept-Language": "en-US,en;q=0.9,de;q=0.8",
-            "Cookie": '__cfduid=dfed188bff52c1448ff18cfcb3e73ea151526622148; _ym_uid=1526622145533126521; _iub_cs-76236742=%7B%22consent%22%3Atrue%2C%22timestamp%22%3A%222018-05-18T05%3A42%3A34.985Z%22%2C%22version%22%3A%221.2.2%22%2C%22id%22%3A76236742%7D; PHPSESSID=q6q6igdtvclgda6elvkoud0ae0; __atuvc=1%7C3; __atuvs=5c3fad4d717eedd7000; _ym_d=1547677006; _ym_isad=1; _ym_visorc_20472997=w; rr=f49e0325f85aae2455c9ab47d745c85f; rr_id=2000248613; rr_add=151117b3509ac7758c52a27dd00ca409'
-        }
-
-
 def format_cookie(str):
     split=str.split('\n')
     header_dict=dict()
