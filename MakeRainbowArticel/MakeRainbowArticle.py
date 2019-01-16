@@ -158,13 +158,16 @@ def makeLineSpacer():
     #return '[center][img]https://i.imgur.com/T7sMBze.png[/img][/center]'
     return '[center][img]http://andyhotel.co/wp-content/uploads/2017/10/divider.png[/img][/center]'
 def bottomSpacer():
-    return '[center][img]https://i.imgur.com/5BQKinv.png[/img][/center]'
+    return '[center][img]https://cdn.pbrd.co/images/HE9LsNJt.png[/img][/center]'
 def topSpacer():
-    return '[center][img]https://i.imgur.com/Qki2y6O.png[/img][/center]'
+    return '[center][img]https://cdn.pbrd.co/images/HE9L4k5.png[/img][/center]'
 def lineSpacer():
-    return '[center][img]https://i.imgur.com/dJjc1IT.png[/img][/center]'
+    return '[center][img]https://cdn.pbrd.co/images/HE9LhsC.png[/img][/center]'
 def articleEnder():
-    return '[center][img]https://i.imgur.com/mKEgFUn.png[/img][/center]'
+    return '[center][img]https://cdn.pbrd.co/images/HE9M86B.png[/img][/center]'
+
+def holySign():
+    return '[center][img]https://cdn.pbrd.co/images/HE9KCHt.png[/img][/center]'
 
 def file_changer():
     with open('file.txt',encoding='utf-8') as f:

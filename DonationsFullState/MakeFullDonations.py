@@ -57,16 +57,16 @@ def get_soup_to_link(header, link):
 
 myheader = \
         {
-            "Host": " rivalregions.com",
-            "Connection": " keep-alive",
-            "Accept": "*/*",
+            "Host": "rivalregions.com",
+            "Connection": "keep-alive",
+            "Accept": "text/html, */*; q=0.01",
             "X-Requested-With": " XMLHttpRequest",
-            "User-Agent": " Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36",
-            "DNT": " 1",
-            "Referer": " http//rivalregions.com/",
-            "Accept-Encoding": " gzip, deflate",
-            "Accept-Language": " en-US,en;q=0.9,de;q=0.8",
-            "Cookie": "_ym_uid=1511307282951464034; fbm_1457231197822920=base_domain=.rivalregions.com; __cfduid=dedafd79af26a6580a9e0713059811ff81520122926; _iub_cs-76236742=%7B%22consent%22%3Atrue%2C%22timestamp%22%3A%222018-05-05T11%3A33%3A20.152Z%22%2C%22version%22%3A%221.2.2%22%2C%22id%22%3A76236742%7D; PHPSESSID=u6f7ff1d5m8giitqirl2526ab3; _ym_visorc_20472997=w; _ym_isad=2; __atuvc=13%7C18%2C26%7C19; __atuvs=5af5c88054d7415c006; rr=0236ebfe6c3f50cfcc1d00ee89f4128b; rr_id=2000248613; rr_add=2572d4ef7b9a5a5360e9017d0648ac39"
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36",
+            "DNT": "1",
+            "Referer": "http//rivalregions.com/",
+            "Accept-Encoding": "gzip, deflate",
+            "Accept-Language": "en-US,en;q=0.9,de;q=0.8",
+            "Cookie": "__cfduid=dfed188bff52c1448ff18cfcb3e73ea151526622148; PHPSESSID=8cj1ipe9nsqarlrcs28atsn8l4; __atuvc=1%7C20; __atuvs=5afe67c00eda7b55000; _ym_uid=1526622145533126521; _ym_isad=2; _ym_visorc_20472997=w; _iub_cs-76236742=%7B%22consent%22%3Atrue%2C%22timestamp%22%3A%222018-05-18T05%3A42%3A34.985Z%22%2C%22version%22%3A%221.2.2%22%2C%22id%22%3A76236742%2C%22documentClicked%22%3Atrue%7D; rr=83cd9d0e40fd468129fae26ccf8eb42c; rr_id=2000248613; rr_add=14b133a737df0b1b43f1c3f65ae03c6b"
         }
 
 def read_donationats_for_region(myheader,id,don_dict):
