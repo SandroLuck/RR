@@ -12,7 +12,7 @@ Run under Windows, double click the .exe and allow it.
 You are asked for 7 fields.
 ![alt text](https://github.com/SandroLuck/RR/blob/master/DonationsFullState/exampleImages/fullview.JPG)
 This will produce.
-![alt text](https://github.com/SandroLuck/RR/blob/master/DonationsFullState/exampleImages/resultUsa.JPG)
+![alt text](https://github.com/SandroLuck/RR/blob/master/DonationsFullState/exampleImages/resultUSA.JPG)
 
 Request Header:
 After login into http://rivalregions.com/
