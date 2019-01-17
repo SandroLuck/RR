@@ -11,7 +11,9 @@ Run under Windows, double click the .exe and allow it.
 ### Help
 You are asked for 7 fields.
 ![alt text](https://github.com/SandroLuck/RR/blob/master/DonationsFullState/exampleImages/fullview.JPG)
-This will produce.
+
+
+The result will look like this for the USA.
 ![alt text](https://github.com/SandroLuck/RR/blob/master/DonationsFullState/exampleImages/resultUSA.JPG)
 
 Request Header:
