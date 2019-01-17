@@ -1,14 +1,6 @@
 import os
-import sys
 from tkinter import *
 import urllib3
-import time
-
-from collections import OrderedDict
-from bs4 import BeautifulSoup as bs
-import matplotlib.pyplot as plt
-from operator import itemgetter
-from collections import OrderedDict
 from bs4 import BeautifulSoup as bs
 import matplotlib.pyplot as plt
 from operator import itemgetter
@@ -282,19 +274,17 @@ class InputGuiSimple:
             return
         header=format_cookie(self.cookie_input.get())
         make_donation_analysis(header, int(self.state_id_input.get()),path)
+if __name__ == "__main__":
+    root = Tk()
+    frame=Frame(root,
+                border=1,
+                relief=GROOVE,
+                background="white",
+                )
+    Grid.rowconfigure(root, 0, weight=1)
+    Grid.columnconfigure(root, 0, weight=1)
+    frame.grid(row=30, column=100, sticky=N+S+E+W)
 
-root = Tk()
-frame=Frame(root,
-            border=1,
-            relief=GROOVE,
-            background="white",
-            )
-Grid.rowconfigure(root, 0, weight=1)
-Grid.columnconfigure(root, 0, weight=1)
-frame.grid(row=30, column=100, sticky=N+S+E+W)
+    my_gui = InputGuiSimple(root)
 
-
-
-my_gui = InputGuiSimple(root)
-
-root.mainloop()
+    root.mainloop()
