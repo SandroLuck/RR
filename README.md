@@ -1,21 +1,23 @@
 # RR Helpers
-This repository contains scripts i created for the game http://rivalregions.com/
+This repository contains scripts I created for the game http://rivalregions.com/
 
 # Donation Pie Chart for State
-An exexutable can be found in https://github.com/SandroLuck/RR/tree/master/DonationsFullState/dist
-This will create a pie chart of the donations to a state.
+An executable can be found in https://github.com/SandroLuck/RR/releases/tag/v1
+MakeFullDonation.exe
+This will create a pie chart of the donations to a state over all regions.
+This might take a while.
 Please understand that this program has very restricted capabilities.
-Run under Windows, double click https://github.com/SandroLuck/RR/tree/master/DonationsFullState/dist/MakeFullDonations.exe
+Run under Windows, double click the .exe and allow it.
 ### Help
-You are asked for 4 fields.
-
+You are asked for 7 fields.
+![alt text](http://url/to/img.png)
 Request Header:
 After login into http://rivalregions.com/
 In Chrome for example Press F12.
 
 It should look like this.
 
-Press the for example the field highlighted in red in the image
+Press the, for example, the field highlighted in red in the image
 
 It should look like this.
 
@@ -28,7 +30,7 @@ The Field End Date should have the format Year.Month.Day e.g. 2018.05.30
 This date has to be in the PAST.
 The application calculates all donations from that date UNTIL TODAY.
 
-The output path should be a normal windows path for example ' C:\Users\Sandro\Desktop\imageName.png'. I has to end with '.png', so you can open it later.
+The output path should be a normal windows path for example ' C:\Users\Sandro\Desktop\imageName.png'. I have to end with '.png', so you can open it later.
 A full example:
 
 
