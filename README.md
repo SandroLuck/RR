@@ -10,7 +10,9 @@ Please understand that this program has very restricted capabilities.
 Run under Windows, double click the .exe and allow it.
 ### Help
 You are asked for 7 fields.
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/SandroLuck/RR/blob/master/DonationsFullState/exampleImages/fullview.JPG)
+This will produce.
+
 Request Header:
 After login into http://rivalregions.com/
 In Chrome for example Press F12.
